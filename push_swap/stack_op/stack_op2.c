@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   stack_op2.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ilknurhancer <ilknurhancer@student.42.f    +#+  +:+       +#+        */
+/*   By: ihancer <ihancer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/21 12:59:17 by ihancer           #+#    #+#             */
-/*   Updated: 2024/12/26 17:24:44 by ilknurhance      ###   ########.fr       */
+/*   Updated: 2024/12/27 16:54:37 by ihancer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,14 +22,14 @@ void	pa(t_stack **node_a, t_stack **node_b)
 		*node_b = (*node_b)->next;
 		add->next = *node_a;
 		*node_a = add;
-        write(1, "pa\n", 3);
+		write(1, "pa\n", 3);
 	}
 	return ;
 }
 
 void	pb(t_stack **node_a, t_stack **node_b)
 {
-	t_stack *add;
+	t_stack		*add;
 
 	if (*node_a != NULL)
 	{
@@ -37,7 +37,7 @@ void	pb(t_stack **node_a, t_stack **node_b)
 		*node_a = (*node_a)->next;
 		add->next = *node_b;
 		*node_b = add;
-        write(1, "pb\n", 3);
+		write(1, "pb\n", 3);
 	}
 	return ;
 }

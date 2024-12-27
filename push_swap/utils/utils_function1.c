@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils_function1.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ilknurhancer <ilknurhancer@student.42.f    +#+  +:+       +#+        */
+/*   By: ihancer <ihancer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/25 12:16:53 by ihancer           #+#    #+#             */
-/*   Updated: 2024/12/26 08:53:30 by ilknurhance      ###   ########.fr       */
+/*   Updated: 2024/12/27 16:50:15 by ihancer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,11 +41,11 @@ char	*ft_strdup(const char *s1)
 	return ((char *)(d - slen));
 }
 
-int	ft_atoi(const char *str)
+long	ft_atoi(const char *str)
 {
-	int	sign;
-	int	result;
-	int	i;
+	int		sign;
+	long	result;
+	int		i;
 
 	sign = 1;
 	result = 0;

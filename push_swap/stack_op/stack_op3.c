@@ -3,33 +3,31 @@
 /*                                                        :::      ::::::::   */
 /*   stack_op3.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ilknurhancer <ilknurhancer@student.42.f    +#+  +:+       +#+        */
+/*   By: ihancer <ihancer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/21 13:06:44 by ihancer           #+#    #+#             */
-/*   Updated: 2024/12/26 09:50:49 by ilknurhance      ###   ########.fr       */
+/*   Updated: 2024/12/27 16:50:55 by ihancer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-static void rrotate(t_stack **node)
+static void	rrotate(t_stack **node)
 {
-    t_stack *end;
-    t_stack *second_end;
+	t_stack	*end;
+	t_stack	*second_end;
 
-    if (ft_lstsize(*node) > 1)
-    {
-        end = ft_lstlast(*node);
-        second_end = *node;
-
-        while (second_end->next != end)
-            second_end = second_end->next;
-
-        second_end->next = NULL; 
-        end->next = *node;     
-        *node = end;           
-    }
-    return;
+	if (ft_lstsize(*node) > 1)
+	{
+		end = ft_lstlast(*node);
+		second_end = *node;
+		while (second_end->next != end)
+			second_end = second_end->next;
+		second_end->next = NULL;
+		end->next = *node;
+		*node = end;
+	}
+	return ;
 }
 
 void	rra(t_stack **node_a)

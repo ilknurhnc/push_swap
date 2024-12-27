@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   utils_list.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ilknurhancer <ilknurhancer@student.42.f    +#+  +:+       +#+        */
+/*   By: ihancer <ihancer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/25 12:17:04 by ihancer           #+#    #+#             */
-/*   Updated: 2024/12/26 16:42:02 by ilknurhance      ###   ########.fr       */
+/*   Updated: 2024/12/27 16:50:00 by ihancer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-t_stack *ft_lstnew(int content)
+t_stack	*ft_lstnew(int content)
 {
 	t_stack	*node;
 
@@ -36,7 +36,6 @@ void	ft_lstadd_back(t_stack **lst, t_stack *new)
 		end->next = new;
 	}
 }
-
 
 t_stack	*ft_lstlast(t_stack *lst)
 {

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils_av_control.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ilknurhancer <ilknurhancer@student.42.f    +#+  +:+       +#+        */
+/*   By: ihancer <ihancer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/25 12:16:13 by ihancer           #+#    #+#             */
-/*   Updated: 2024/12/26 11:03:29 by ilknurhance      ###   ########.fr       */
+/*   Updated: 2024/12/27 17:32:04 by ihancer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,6 @@ static int	num_control(char *str)
 	i = 0;
 	if (str[i] == '-')
 		i++;
-
 	while (str[i])
 	{
 		if (!ft_isdigit(str[i]))
@@ -46,6 +45,7 @@ static int	same_control(int num, char *str[], int index)
 	}
 	return (0);
 }
+
 void	free_str(char **str)
 {
 	int	i;
@@ -65,20 +65,12 @@ void	check_arg(int argc, char *argv[])
 	long	num;
 	char	**str;
 
-	i=0;
+	i = 0;
 	if (argc == 2)
-    {
-        str = ft_split(argv[1], ' ');
-        if (!str || !*str)
-			error(); 
-    }
+		str = ft_split(argv[1], ' ');
 	else
-    {
-        str = argv;
-        i = 1;
-    }
-		
-	while (str[i])
+		str = argv;
+	while (str[++i])
 	{
 		num = ft_atoi(str[i]);
 		if (num < -2147483648 || num > 2147483647)
@@ -86,9 +78,8 @@ void	check_arg(int argc, char *argv[])
 		if (!num_control(str[i]))
 			error();
 		if (same_control(num, str, i))
-		    error();
-        i++;
+			error();
 	}
-    if(argc == 2)
-        free_str(str);
+	if (argc == 2)
+		free_str(str);
 }

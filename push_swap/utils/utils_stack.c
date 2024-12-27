@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils_stack.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ilknurhancer <ilknurhancer@student.42.f    +#+  +:+       +#+        */
+/*   By: ihancer <ihancer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/25 12:17:40 by ihancer           #+#    #+#             */
-/*   Updated: 2024/12/26 16:40:56 by ilknurhance      ###   ########.fr       */
+/*   Created: 2024/12/27 16:48:57 by ihancer           #+#    #+#             */
+/*   Updated: 2024/12/27 17:28:53 by ihancer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,12 @@
 
 void	add_stack(t_stack **stack, int argc, char *argv[])
 {
+	int		value;
 	t_stack	*node;
 	char	**str;
 	int		i;
 
-    node = *stack;
+	node = *stack;
 	i = 0;
 	if (argc == 2)
 		str = ft_split(argv[1], ' ');
@@ -29,15 +30,15 @@ void	add_stack(t_stack **stack, int argc, char *argv[])
 	}
 	while (str[i])
 	{
-		int value = ft_atoi(str[i]);
-        node = ft_lstnew(value);
-        if(!node)
-            error();
+		value = ft_atoi(str[i]);
+		node = ft_lstnew(value);
+		if (!node)
+			error();
 		ft_lstadd_back(stack, node);
 		i++;
 	}
-    if (argc == 2)
-        free_str(str);
+	if (argc == 2)
+		free_str(str);
 }
 
 void	fill_index(t_stack **stack)
@@ -59,7 +60,7 @@ t_stack	*get_min(t_stack **stack)
 	int		control;
 
 	node = *stack;
-    min = NULL;
+	min = NULL;
 	control = 0;
 	if (node)
 	{
@@ -76,19 +77,19 @@ t_stack	*get_min(t_stack **stack)
 	return (min);
 }
 
-void add_index(t_stack **stack)
+void	add_index(t_stack **stack)
 {
-    t_stack *node;
-    int index;
+	t_stack	*node;
+	int		index;
 
-    index = 0;
-    fill_index(stack);
-    node = get_min(stack);  
-    while (node)
-    {
-        node->index = index++;
-        node = get_min(stack); 
-    }
+	index = 0;
+	fill_index(stack);
+	node = get_min(stack);
+	while (node)
+	{
+		node->index = index++;
+		node = get_min(stack);
+	}
 }
 
 void	free_stack(t_stack **stack)

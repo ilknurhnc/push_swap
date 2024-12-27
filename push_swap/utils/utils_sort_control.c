@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils_sort_control.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ilknurhancer <ilknurhancer@student.42.f    +#+  +:+       +#+        */
+/*   By: ihancer <ihancer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/25 12:17:20 by ihancer           #+#    #+#             */
-/*   Updated: 2024/12/27 00:40:45 by ilknurhance      ###   ########.fr       */
+/*   Updated: 2024/12/27 17:03:24 by ihancer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,34 +28,40 @@ int	is_sorted(t_stack **stack)
 	return (1);
 }
 
-void position(t_stack **stack_a, t_stack **stack_b)
+void	position(t_stack **stack_a, t_stack **stack_b)
 {
-    t_stack *node;
-    node = *stack_a;
-	while (min_node(stack_a) != node)
-    {
-        ra(stack_a);
-        node = *stack_a;
-    }
-    pb(stack_a, stack_b);
+	t_stack	*node;
+
+	node = *stack_a;
+	if (min_node(stack_a) == ft_lstlast(*stack_a))
+		rra(stack_a);
+	else
+	{
+		while (min_node(stack_a) != node)
+		{
+			ra(stack_a);
+			node = *stack_a;
+		}
+	}
+	pb(stack_a, stack_b);
 }
 
-t_stack *min_node(t_stack **stack)
+t_stack	*min_node(t_stack **stack)
 {
-    t_stack *tmp;
-    t_stack *min;
+	t_stack	*tmp;
+	t_stack	*min;
 
-    if (!stack || !*stack)
-        return (NULL); 
-    min = *stack;
-    tmp = min->next;
-    while (tmp != NULL)
-    {
-        if (tmp->index < min->index)
-            min = tmp;
-        tmp = tmp->next; 
-    }
-    return (min);
+	if (!stack || !*stack)
+		return (NULL);
+	min = *stack;
+	tmp = min->next;
+	while (tmp != NULL)
+	{
+		if (tmp->index < min->index)
+			min = tmp;
+		tmp = tmp->next;
+	}
+	return (min);
 }
 
 int	get_max_bits(t_stack **stack)

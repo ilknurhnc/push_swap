@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   utils_function.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ilknurhancer <ilknurhancer@student.42.f    +#+  +:+       +#+        */
+/*   By: ihancer <ihancer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/25 12:16:40 by ihancer           #+#    #+#             */
-/*   Updated: 2024/12/26 08:53:59 by ilknurhance      ###   ########.fr       */
+/*   Updated: 2024/12/27 17:19:19 by ihancer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-size_t	ft_strlcpy(char *dest, const char *src, size_t destsize)
+static size_t	ft_strlcpy(char *dest, const char *src, size_t destsize)
 {
 	size_t	i;
 
@@ -28,8 +28,7 @@ size_t	ft_strlcpy(char *dest, const char *src, size_t destsize)
 	return (ft_strlen((char *)src));
 }
 
-
-char	*ft_substr(char const *s, unsigned int start, size_t len)
+static char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
 	size_t	end;
 	size_t	s_len;
